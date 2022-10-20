@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis&display=swap')
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap')
+
+$brand-dark-a: #27404c
+$brand-dark-b: #351431
+$brand-medium-a: #e68e84
+$brand-light-a: #e8bbb0
+$brand-faint-a: #edd4ce
+$brand-bright-a: #ffe0e5
+
+$header-upper-size: 5rem
+$header-lower-size: 3rem
+
+$heading-family: 'Dosis', Calibri, sans-serif
+$body-family: 'Source Sans Pro', Arial, sans-serif
+
+$brand-anim-a: 0.3s cubic-bezier(0.065, 0.950, 0.500, 0.930)
+
+@mixin highlight($horizontal-padding, $top-padding, $size)
+  &::before
+    content: ""
+    position: absolute
+    top: $top-padding
+    left: $horizontal-padding
+    right: calc($horizontal-padding + 0.75rem)
+    height: $size
+    transform: skewX(30deg)
+    border-bottom-left-radius: 1rem
+    background-color: #FFF3
+  &::after
+    content: ""
+    position: absolute
+    top: $top-padding
+    right: $horizontal-padding
+    width: 0.75rem
+    height: $size
+    transform: skewX(30deg)
+    border-top-right-radius: 1rem
+    background-color: #FFF5
+
+@keyframes slide
+  from
+    background-position: 0 0
+  to
+    background-position: -99vw 0
+
+@keyframes openScale
+  from
+    opacity: 0
+    transform: scale(1.5)
+  to
+    opacity: 1
+    transform: scale(1)
