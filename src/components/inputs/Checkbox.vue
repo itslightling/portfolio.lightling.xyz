@@ -13,7 +13,7 @@
 </template>
 
 <style lang='sass' scoped>
-@import 'style/variables.sass'
+@import '@/styles/variables.sass'
 
 .checkbox
   display: flex

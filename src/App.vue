@@ -1,16 +1,22 @@
-<template>
-  <main>
-    <router-view></router-view>
-  </main>
+<template lang='pug'>
+div
+  HeaderNav
+  main
+    router-view
 </template>
 
-<style scoped>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style scoped lang='sass'>
+
 </style>
+
+<script lang='ts'>
+import { defineComponent } from 'vue'
+
+import HeaderNav from './components/navigation/HeaderNav.vue'
+
+export default defineComponent({
+  components: {
+    HeaderNav,
+  }
+})
+</script>

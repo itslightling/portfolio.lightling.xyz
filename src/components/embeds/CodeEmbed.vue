@@ -24,7 +24,7 @@
 </template>
 
 <style lang='sass' scoped>
-@import 'style/variables.sass'
+@import '@/styles/variables.sass'
 
 .code-embed
   margin: 1rem 0 0
@@ -66,10 +66,8 @@ pre
 <script lang='ts'>
 import { defineComponent, ref } from 'vue'
 
-import Button from 'components/inputs/Button.vue'
-import {
-  CodeSnippet,
-} from 'types/CodeSnippet'
+import Button from '@/components/inputs/Button.vue'
+import { CodeSnippet } from 'types/CodeSnippet'
 
 export default defineComponent({
   components: {
