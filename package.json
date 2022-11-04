@@ -9,11 +9,14 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "js-yaml": "^4.1.0",
+    "normalize.css": "^8.0.1",
     "vue": "^3.2.37",
     "vue-router": "^4.1.5",
     "vue-tippy": "^4.16.0"
   },
   "devDependencies": {
+    "@types/js-yaml": "^4.0.5",
     "@vitejs/plugin-vue": "^3.1.0",
     "path": "^0.12.7",
     "pug": "^3.0.2",
