@@ -7,8 +7,8 @@ header
   )
     div
       img(
-        src='/images/branding/v1-official.svg'
-        alt='lightling wolf head avatar'
+        :src='logo.src'
+        :alt='logo.alt'
       )
   button.mobile(
     text='Menu'
@@ -207,6 +207,7 @@ header
 
 <script lang='ts'>
 import { defineComponent, ref } from 'vue'
+import yaml from 'js-yaml'
 
 import Button from '@/components/inputs/Button.vue'
 
@@ -218,15 +219,24 @@ export default defineComponent({
   setup () {
     const currentRoute = ref([])
     const currentUrl = ref('')
+    const logo = ref({})
     const mobileOpen = ref(false)
 
     return {
       currentRoute,
       currentUrl,
+      logo,
       mobileOpen,
     }
   },
   mounted () {
+    fetch('/content/info.yml')
+      .then((response) => response.blob())
+      .then((blob) => blob.text())
+      .then((yamlAsString) => yaml.load(yamlAsString))
+      .then((yamlAsObj) => {
+        this.logo = (yamlAsObj as any).home.logo
+      })
     this.currentUrl = this.$route.path
     const paths: string[] = this.currentUrl.split('/').filter((url) => url !== '')
   },
