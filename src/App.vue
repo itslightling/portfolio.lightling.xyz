@@ -1,12 +1,17 @@
 <template lang='pug'>
-div
+#entry
   HeaderNav
   main
     router-view
 </template>
 
 <style scoped lang='sass'>
+@import '@/styles/variables.sass'
 
+#entry
+  main
+    height: calc(100vh - $header-upper-size)
+    margin-top: calc($header-upper-size + $header-lower-size)
 </style>
 
 <script lang='ts'>
