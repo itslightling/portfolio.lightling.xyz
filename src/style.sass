@@ -1,4 +1,87 @@
 @import 'normalize.css'
+@import '@/styles/variables'
+
+::selection,
+::-moz-selection
+  background-color: $brand-dark-b
+  color: $brand-light-a
+
+html
+  scrollbar-color: $brand-bright-a $brand-dark-a
 
 body
+  font-family: $body-family
+  background-color: $brand-faint-a
+  color: $brand-dark-b
+  margin: 0
   overflow-x: hidden
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  legend
+    font-family: $heading-family
+    color: $brand-dark-b
+    margin: 0
+  h2
+    font-size: 2.5rem
+    line-height: 2.5rem
+  h3
+    font-size: 2rem
+    line-height: 2rem
+  h4
+    font-size: 1.75rem
+    line-height: 1.75rem
+  h5
+    font-size: 1.5rem
+    line-height: 1.5rem
+  h6
+    font-size: 1.33rem
+    line-height: 1.33rem
+  legend
+    font-size: 1.5rem
+    line-height: 1.5rem
+  &::-webkit-scrollbar
+    background-color: $brand-dark-a
+    width: 1rem
+  &::-webkit-scrollbar-track
+    width: 0.75rem
+  &::-webkit-scrollbar-button
+    background-color: $brand-medium-a
+  &::-webkit-scrollbar-thumb
+    background-color: $brand-bright-a
+    border: 0.15rem solid $brand-dark-a
+    border-radius: 0.5rem
+  code
+    background-color: desaturate(darken($brand-light-a, 10%), 10%)
+    padding: 0 0.25rem
+    border-radius: 1rem
+  pre>code
+    background-color: unset
+  a
+    white-space: nowrap
+    position: relative
+    transition: all $brand-anim-a
+    outline: 0.25rem solid transparent
+    border-radius: 1rem
+    color: $brand-dark-a
+    text-decoration: none
+    font-weight: bold
+    &:focus
+      outline-color: inherit
+    &:after
+      content: ""
+      position: absolute
+      width: 33.333%
+      left: 33.333%
+      bottom: 0
+      height: 0.25rem
+      border-radius: 0.25rem
+      background-color: $brand-dark-a
+      transition: all $brand-anim-a
+    &:hover:after
+      width: 100%
+      left: 0
+    &:active:after
+      transform: scaleX(0.5)

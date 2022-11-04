@@ -53,7 +53,7 @@
       border-radius: 0.5rem
       transition: all $brand-anim-a
     &:checked::before
-      background-image: url('/images/site/checkmark.svg')
+      background-image: url('/content/images/site/checkmark.svg')
       background-size: 70% 70%
       background-color: $brand-dark-b
 </style>

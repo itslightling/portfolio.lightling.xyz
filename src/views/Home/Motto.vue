@@ -35,7 +35,7 @@ section(
   &::after
     content: ''
     z-index: -1
-    background-image: url(content/images/site/landing-border.svg)
+    background-image: url(/content/images/site/landing-border.svg)
     background-origin: border-box
     background-size: 33vw auto
     background-repeat: repeat-x

@@ -37,7 +37,7 @@ section(
     position: relative
     &::before
       content: ''
-      background-image: url(/images/misc/pride.svg)
+      background-image: url(/content/images/misc/pride.svg)
       background-size: cover
       background-position: center center
       position: absolute
