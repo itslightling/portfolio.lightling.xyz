@@ -49,7 +49,7 @@ header
           &nbsp;/&nbsp;
       span(
         v-else=''
-      ) | {{ route.title }}
+      ) {{ route.title }}
 </template>
 
 <style lang='sass' scoped>
@@ -129,7 +129,10 @@ header
         margin-bottom: 0.25rem
   .lower
     background-color: rgba($brand-dark-a, 0.5)
+    backdrop-filter: blur(8px)
     height: $header-lower-size
+    z-index: -1
+    position: relative
     span
       font-size: 2rem
       height: $header-lower-size - 0.25rem
@@ -207,9 +210,13 @@ header
 
 <script lang='ts'>
 import { defineComponent, ref } from 'vue'
+import { RouteLocation } from 'vue-router'
 import yaml from 'js-yaml'
 
 import Button from '@/components/inputs/Button.vue'
+
+import { Project } from '@/types/project/Project'
+import { ProjectLink } from '@/types/project/ProjectLink'
 
 export default defineComponent({
   name: 'Header',
@@ -217,16 +224,18 @@ export default defineComponent({
     Button,
   },
   setup () {
-    const currentRoute = ref([])
+    const currentRoute = ref([] as Array<ProjectLink>)
     const currentUrl = ref('')
     const logo = ref({})
     const mobileOpen = ref(false)
+    const projectRoutes = ref([] as Array<ProjectLink>)
 
     return {
       currentRoute,
       currentUrl,
       logo,
       mobileOpen,
+      projectRoutes,
     }
   },
   mounted () {
@@ -238,7 +247,32 @@ export default defineComponent({
         this.logo = (yamlAsObj as any).home.logo
       })
     this.currentUrl = this.$route.path
-    const paths: string[] = this.currentUrl.split('/').filter((url) => url !== '')
+    fetch('/content/projects.yml')
+      .then((response) => response.blob())
+      .then((blob) => blob.text())
+      .then((yamlAsString) => yaml.load(yamlAsString))
+      .then((yamlAsObj) => {
+        const projects = (yamlAsObj as Array<any>).map((str) => fetch(`/content/projects/${str}.yml`))
+        return Promise.all(projects)
+      })
+      .then((responses) => {
+        const parsed = responses.map((response) => 
+          response.blob()
+            .then((blob) => blob.text())
+            .then((str) => yaml.load(str))
+        )
+        return Promise.all(parsed as Array<any> as Array<Project>)
+      })
+      .then((projects) => {
+        this.projectRoutes = projects.map((project) => project.link)
+        this.updateUrl()
+      })
+  },
+  watch: {
+    $route (to: RouteLocation, from: RouteLocation) {
+      this.currentUrl = to.fullPath
+      this.updateUrl()
+    }
   },
   methods: {
     onToggle (visibility: boolean) {
@@ -250,6 +284,13 @@ export default defineComponent({
         path: e.target.pathname,
       })
     },
+    updateUrl () {
+      const paths: Array<ProjectLink> = this.currentUrl.split('/').filter((url) => url !== '').map((str) => ({
+        path: str,
+        title: str[0].toUpperCase() + str.substring(1),
+      }))
+      this.currentRoute = paths.map((path) => this.projectRoutes.find((project) => path.path === project.path) || path)
+    }
   },
 })
 </script>
