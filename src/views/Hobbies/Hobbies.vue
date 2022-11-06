@@ -47,7 +47,6 @@
   #main
     flex-direction: column
     .main-container
-      overflow: visible
       flex: 1 1 auto
       margin-top: 0
 </style>

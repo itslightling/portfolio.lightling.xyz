@@ -45,7 +45,6 @@
   display: flex
   .main-container
     flex: 0 0 calc(50% - 1rem)
-    overflow-y: scroll
     &>section
       border-radius: 1rem
       background-color: $brand-light-a
@@ -79,7 +78,6 @@
   #main
     flex-direction: column
     .main-container
-      overflow: visible
       flex: 1 1 auto
       margin-top: 0
 

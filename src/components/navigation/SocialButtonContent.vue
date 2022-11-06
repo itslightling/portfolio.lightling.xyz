@@ -29,6 +29,8 @@ div(
   img
     height: auto
     width: 100%
+    box-shadow: 0 2px 2px 0 transparentize($brand-dark-b, 0.5)
+    border-radius: 50%
 
 .wide
   img

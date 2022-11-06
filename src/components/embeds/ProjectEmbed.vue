@@ -83,6 +83,7 @@ div(
         bottom: 0
         color: #fff
         background-color: #000a
+        backdrop-filter: blur(8px)
         width: 100%
         text-align: center
         font-size: 1.2rem
