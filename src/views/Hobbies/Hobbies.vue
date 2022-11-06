@@ -78,13 +78,13 @@ export default defineComponent({
   },
   mounted () {
     fetch('/content/info.yml')
-        .then((response) => response.blob())
-        .then((blob) => blob.text())
-        .then((yamlAsString) => yaml.load(yamlAsString))
-        .then((yamlAsObj) => {
-          this.images = ((yamlAsObj as any).fun.art as Array<any>).sort(() => (Math.random() > 0.5) ? 1 : -1)
-          this.music = ((yamlAsObj as any).fun.music as Array<any>).sort(() => (Math.random() > 0.5) ? 1 : -1)
-        })
+      .then((response) => response.blob())
+      .then((blob) => blob.text())
+      .then((yamlAsString) => yaml.load(yamlAsString))
+      .then((yamlAsObj) => {
+        this.images = ((yamlAsObj as any).fun.art as Array<any>).sort(() => (Math.random() > 0.5) ? 1 : -1)
+        this.music = ((yamlAsObj as any).fun.music as Array<any>).sort(() => (Math.random() > 0.5) ? 1 : -1)
+      })
   },
   head () {
     return {

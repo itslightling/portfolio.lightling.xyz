@@ -2,6 +2,7 @@ import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
 
 import { ProjectLink } from './types/project/ProjectLink'
 
+import About from './views/About/About.vue'
 import Home from './views/Home/Home.vue'
 import Hobbies from './views/Hobbies/Hobbies.vue'
 
@@ -13,7 +14,7 @@ export const SiteRoutes: ProjectLink[] & RouteRecordRaw[] = [
   },
   {
     path: '/about',
-    component: Home,
+    component: About,
     title: 'About & Contact',
   },
   {
