@@ -1,3 +1,48 @@
+import { ProjectBasicInfo } from '@/types/project/ProjectBasicInfo'
+
+/**
+ * Compares two projects by period. This prefers projects with newer end dates, falling back to start dates only if both are current
+ * @param a A project to compare with
+ * @param b A project to compare against
+ * @returns -1 if project A is more recent, 1 if project B is more recent, 0 if both have the same end dates (or same start dates if both are current)
+ */
+export const compareProjectsByPeriod = (
+  a: ProjectBasicInfo,
+  b: ProjectBasicInfo,
+): number => {
+  const aIsCurrent = a.period[a.period.length - 1].end.toLowerCase().trim() === 'current'
+  const bIsCurrent = b.period[b.period.length - 1].end.toLowerCase().trim() === 'current'
+  if (aIsCurrent && !bIsCurrent) {
+    // if b is current and a is not, b is more recent (-1)
+    return -1
+  } else if (bIsCurrent && !aIsCurrent) {
+    // if a is current and b is not, a is more recent (1)
+    return 1
+  } else if (aIsCurrent && bIsCurrent) {
+    // if a and b are both current, compare start times
+    const startA = new Date(a.period[0].start).getTime()
+    const startB = new Date(b.period[0].start).getTime()
+    if (startA < startB) {
+      return 1
+    } else if (startA > startB) {
+      return -1
+    } else {
+      return 0
+    }
+  } else {
+    // if a nd b are neither current, compare end times
+    const endA = new Date(a.period[a.period.length - 1].end).getTime()
+    const endB = new Date(b.period[b.period.length - 1].end).getTime()
+    if (endA < endB) {
+      return 1
+    } else if (endA > endB) {
+      return -1
+    } else {
+      return 0
+    }
+  }
+}
+
 /**
  * Utility for converting the general date format of a project's period to a localized date string
  * @param dateString The string to convert
