@@ -16,7 +16,7 @@
 
 <style lang='sass' scoped>
 @import '@/styles/variables.sass'
-@import 'styles/shared/embed.sass'
+@import '@/styles/shared/embed.sass'
 
 .video-embed
   .video

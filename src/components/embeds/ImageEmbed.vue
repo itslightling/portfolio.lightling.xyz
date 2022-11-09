@@ -36,17 +36,17 @@
       p(
         v-html='image.longDescription || image.shortDescription'
       )
-        button(
-          v-focus=''
-          tabindex='2'
-          text='Close'
-          @click='() => onToggle(false)'
-        )
+      button(
+        v-focus=''
+        tabindex='2'
+        text='Close'
+        @click='() => onToggle(false)'
+      )
 </template>
 
 <style lang="sass" scoped>
 @import '@/styles/variables.sass'
-@import 'styles/shared/embed.sass'
+@import '@/styles/shared/embed.sass'
 
 .element::v-deep
   .image
@@ -112,16 +112,16 @@
     color: $brand-light-a
     font-size: 1.5rem
     max-width: 42rem
-    button
-      &:focus
-        outline-color: $brand-bright-a !important
+  button
+    &:focus
+      outline-color: $brand-bright-a !important
 </style>
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue'
 import { TippyComponent } from 'vue-tippy'
 import { DetailedImageElement } from '@/types/DetailedImageElement'
-import Button from '@/components/Shared/Inputs/Button.vue'
+import Button from '@/components/inputs/Button.vue'
 
 export default defineComponent({
   name: 'ImageEmbed',
