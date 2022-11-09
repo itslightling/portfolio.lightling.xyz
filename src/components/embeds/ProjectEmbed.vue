@@ -144,12 +144,11 @@ export default defineComponent({
       required: true,
     },
     filters: {
-      type: Array,
+      type: Array<string>,
       required: false,
     },
     operator: {
       type: String as Object as () => FilterOperator,
-      // eslint-disable-next-line vue/require-valid-default-prop
       default: 'OR',
     },
   },

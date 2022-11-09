@@ -10,7 +10,7 @@
 
 #entry
   main
-    height: calc(100vh - $header-upper-size)
+    height: calc(100vh - $header-upper-size - $header-lower-size)
     margin-top: calc($header-upper-size + $header-lower-size)
 </style>
 
