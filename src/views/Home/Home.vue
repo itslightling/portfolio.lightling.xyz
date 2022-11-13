@@ -29,7 +29,7 @@ import Motto from './Motto.vue'
 import Statement from './Statement.vue'
 
 export default defineComponent({
-    name: "Home",
+    name: 'Home',
     components: {
       Featured,
       Motto,

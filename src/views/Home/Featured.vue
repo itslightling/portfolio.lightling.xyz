@@ -1,19 +1,19 @@
 <template lang='pug'>
 section(
-  id="featured"
+  id='featured',
 )
   h2 Featured
   div
     div(
-      v-for="project in featured"
-      :key="project.name"
+      v-for='project in featured',
+      :key='project.name',
     )
       ProjectEmbed(
-        :project="project"
+        :project='project',
       )
 </template>
 
-<style lang="sass" scoped>
+<style lang='sass' scoped>
 @import '@/styles/variables.sass'
 
 #featured
@@ -49,12 +49,12 @@ section(
     width: 99vw
 </style>
 
-<script lang="ts">
+<script lang='ts'>
 import {
   defineComponent,
 } from 'vue'
-import ProjectEmbed from '@/components/embeds/ProjectEmbed.vue';
-import { ProjectFeaturedDetails } from '@/types/project/ProjectFeaturedDetails';
+import ProjectEmbed from '@/components/embeds/ProjectEmbed.vue'
+import { ProjectFeaturedDetails } from '@/types/project/ProjectFeaturedDetails'
 
 export default defineComponent({
   name: 'Featured',

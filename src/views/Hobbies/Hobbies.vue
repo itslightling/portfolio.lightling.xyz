@@ -2,7 +2,7 @@
 #main
   .main-container
     section(
-      id='music'
+      id='music',
     )
       h2 Music
       div
@@ -15,11 +15,11 @@
         )
   .main-container
     section(
-      id='art'
+      id='art',
     )
       h2 Art
       GalleryEmbed(
-        :images='images'
+        :images='images',
       )
 </template>
 

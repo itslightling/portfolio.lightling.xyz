@@ -2,39 +2,39 @@
 #main
   .main-container
     section(
-      id='contact'
+      id='contact',
     )
       h2 Contact
       .wide
         SocialButton(
-          v-for='info in contact.primary'
-          :key='info.title'
-          :title='info.title'
-          :link='info.link'
-          :image-src='info.imageSrc'
-          :is-wide='true'
+          v-for='info in contact.primary',
+          :key='info.title',
+          :title='info.title',
+          :link='info.link',
+          :image-src='info.imageSrc',
+          :is-wide='true',
         )
       .small
         SocialButton(
-          v-for='info in contact.secondary'
-          :key='info.title'
-          :title='info.title'
-          :link='info.link'
-          :image-src='info.imageSrc'
+          v-for='info in contact.secondary',
+          :key='info.title',
+          :title='info.title',
+          :link='info.link',
+          :image-src='info.imageSrc',
         )
   .main-container
     section(
-      id='about'
+      id='about',
     )
       h2 About
       AboutInfoEmbed(
-        v-for='info in descriptions'
-        :id='info.id'
-        :key='info.id'
-        :heading='info.heading'
-        :image-src='info.imageSrc'
-        :image-alt='info.imageAlt'
-        :body='info.body'
+        v-for='info in descriptions',
+        :id='info.id',
+        :key='info.id',
+        :heading='info.heading',
+        :image-src='info.imageSrc',
+        :image-alt='info.imageAlt',
+        :body='info.body',
       )
 </template>
 

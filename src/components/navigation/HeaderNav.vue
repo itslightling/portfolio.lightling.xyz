@@ -1,54 +1,61 @@
 <template lang='pug'>
 header
   a.avatar(
-    href='/'
-    aria-label='link back home'
-    @click='routeLink'
+    @click='routeLink',
+    href='/',
+    aria-label='link back home',
   )
     div
       img(
-        :src='logo.src'
-        :alt='logo.alt'
+        :src='logo.src',
+        :alt='logo.alt',
       )
   button.mobile(
-    text='Menu'
-    @click='() => onToggle(!mobileOpen)'
+    @click='() => onToggle(!mobileOpen)',
+    text='Menu',
   )
   div(
-    :class='`upper ${mobileOpen ? "visible" : ""}`'
+    :class='`upper ${mobileOpen ? "visible" : ""}`',
   )
     a(
-      :class='{ active: currentUrl === "/portfolio"}', href='/portfolio', @click='routeLink'
+      :class='{ active: currentUrl === "/portfolio"}',
+      @click='routeLink',
+      href='/portfolio',
     )
       | Portfolio
     a(
-      :class='{ active: currentUrl === "/about"}', href='/about', @click='routeLink'
+      :class='{ active: currentUrl === "/about"}',
+      @click='routeLink',
+      href='/about',
     )
       | About &amp; Contact
     a(
-      :class='{ active: currentUrl === "/hobbies"}', href='/hobbies', @click='routeLink'
+      :class='{ active: currentUrl === "/hobbies"}',
+      @click='routeLink',
+      href='/hobbies',
     )
       | Fun Stuff
   div(
-    v-if='currentUrl !== "/"'
-    :class='`lower ${mobileOpen ? "visible" : ""}`'
+    v-if='currentUrl !== "/"',
+    :class='`lower ${mobileOpen ? "visible" : ""}`',
   )
     span(
-      v-for='(route, index) in currentRoute', :key='index'
+      v-for='(route, index) in currentRoute',
+      :key='index',
     )
       span(
-        v-if='index < currentRoute.length - 1'
+        v-if='index < currentRoute.length - 1',
       )
         a(
-          :href='route.path'
-          :title='route.title'
-          @click='routeLink'
+          :href='route.path',
+          :title='route.title',
+          @click='routeLink',
         )
           span {{ route.title }}
         span.
           &nbsp;/&nbsp;
       span(
-        v-else=''
+        v-else='',
       ) {{ route.title }}
 </template>
 

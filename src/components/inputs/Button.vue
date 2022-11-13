@@ -1,7 +1,7 @@
 <template lang='pug'>
 button(
-  class='button'
-  @click='$emit("clicked")'
+  class='button',
+  @click='$emit("clicked")',
 )
   div
     span {{ text }}

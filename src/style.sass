@@ -1,4 +1,5 @@
 @import 'normalize.css'
+@import 'tippy.js/dist/tippy.css'
 @import '@/styles/variables'
 @import '@/styles/syntax'
 
@@ -8,7 +9,8 @@
   color: $brand-light-a
 
 html
-  scrollbar-color: $brand-bright-a $brand-dark-a
+  @include moz-scrollbar
+  @include webkit-scrollbar
 
 body
   font-family: $body-family
@@ -43,17 +45,6 @@ body
   legend
     font-size: 1.5rem
     line-height: 1.5rem
-  &::-webkit-scrollbar
-    background-color: $brand-dark-a
-    width: 1rem
-  &::-webkit-scrollbar-track
-    width: 0.75rem
-  &::-webkit-scrollbar-button
-    background-color: $brand-medium-a
-  &::-webkit-scrollbar-thumb
-    background-color: $brand-bright-a
-    border: 0.15rem solid $brand-dark-a
-    border-radius: 0.5rem
   code
     background-color: desaturate(darken($brand-light-a, 10%), 10%)
     padding: 0 0.25rem
@@ -72,7 +63,7 @@ body
     &:focus
       outline-color: inherit
     &:after
-      content: ""
+      content: ''
       position: absolute
       width: 33.333%
       left: 33.333%

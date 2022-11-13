@@ -3,53 +3,53 @@
   .main-container
     .details
       section(
-        id="info",
+        id='info',
       )
         h2 Information
         InformationTableEmbed(
-          :project="currentProject",
+          :project='currentProject',
         )
         p(
-          v-if="currentProject.copyright !== undefined",
-          class="copyright",
-          v-html="currentProject.copyright",
+          v-if='currentProject.copyright !== undefined',
+          class='copyright',
+          v-html='currentProject.copyright',
         )
         section(
-          v-if="currentProject.places !== undefined",
-          id="places",
+          v-if='currentProject.places !== undefined',
+          id='places',
         )
           h3 Places
           ul
             li(
-              v-for="(place, i) in currentProject.places",
-              :key="`place_${i}`",
+              v-for='(place, i) in currentProject.places',
+              :key='`place_${i}`',
             )
               span
                 a(
-                  :href="place.path",
-                  :title="place.title",
-                  v-html="place.title",
+                  :href='place.path',
+                  :title='place.title',
+                  v-html='place.title',
                 )
       section(
-        id="summary",
+        id='summary',
       )
         h2 Summary
         p(
-          v-for="(p, i) in currentProject.summary",
-          :key="`summary${i}`",
-          v-html="p",
+          v-for='(p, i) in currentProject.summary',
+          :key='`summary${i}`',
+          v-html='p',
         )
       section(
-        v-if="currentProject.contributions !== undefined",
-        id="contributions",
+        v-if='currentProject.contributions !== undefined',
+        id='contributions',
       )
         h2 My Contributions
         ContributionEmbed(
-          v-for="(c, i) in currentProject.contributions",
-          :key="`contribution_0_${i}`",
-          :content="c",
-          :level="0",
-          type="section",
+          v-for='(c, i) in currentProject.contributions',
+          :key='`contribution_0_${i}`',
+          :content='c',
+          :level='0',
+          type='section',
         )
     .samples(
       v-if=`
@@ -59,51 +59,45 @@
       `,
     )
       section(
-        v-if="currentProject.images !== undefined",
-        id="images",
+        v-if='currentProject.images !== undefined',
+        id='images',
       )
         h2 Images
         .gallery
           ImageEmbed(
-            v-for="(image, i) in currentProject.images",
-            :key="`image_${i}`",
-            :image="image",
+            v-for='(image, i) in currentProject.images',
+            :key='`image_${i}`',
+            :image='image',
           )
       section(
-        v-if="currentProject.videos !== undefined",
-        id="videos",
+        v-if='currentProject.videos !== undefined',
+        id='videos',
       )
         h2 Videos
         .gallery
           VideoEmbed(
-            v-for="(video, i) in currentProject.videos",
-            :key="`image_${i}`",
-            :video="video",
+            v-for='(video, i) in currentProject.videos',
+            :key='`image_${i}`',
+            :video='video',
           )
       section(
-        v-if="currentProject.snippets !== undefined",
-        id="code",
+        v-if='currentProject.snippets !== undefined',
+        id='code',
       )
         h2 Code
         CodeEmbed(
-          v-for="(snippet, i) in currentProject.snippets",
-          :key="`snippet_${i}`",
-          :snippet="snippet",
+          v-for='(snippet, i) in currentProject.snippets',
+          :key='`snippet_${i}`',
+          :snippet='snippet',
         )
 </template>
 
-<style lang="sass" scoped>
+<style lang='sass' scoped>
 @import '@/styles/variables.sass'
 
-div>main
-  height: 100vh
-  overflow: hidden
-  width: 100vw
+#main
   .main-container
-    margin: calc($header-upper-size + $header-lower-size) 0 0
     padding: 1rem
-    height: calc(100% - ($header-upper-size + $header-lower-size + 2rem))
-    overflow-y: scroll
     display: flex
     justify-content: center
     grid-gap: 2rem
@@ -180,7 +174,7 @@ div>main
         grid-template-columns: repeat(1, 1fr)
 </style>
 
-<script lang="ts">
+<script lang='ts'>
 import {
   defineComponent, ref,
 } from 'vue'

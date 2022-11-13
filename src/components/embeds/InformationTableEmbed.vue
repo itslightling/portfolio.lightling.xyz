@@ -34,8 +34,8 @@
       span Time Period
     .content-cell.cell
       span(
-        v-for='(period, i) in project.period'
-        :key='`period_${i}`'
+        v-for='(period, i) in project.period',
+        :key='`period_${i}`',
       )
         | {{
         |   getDate(

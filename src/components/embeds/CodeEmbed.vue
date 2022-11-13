@@ -2,24 +2,24 @@
 .code-embed
   .heading
     Button(
-      :text='isOpen ? "▲" : "▼"'
-      @click='() => onToggle(!isOpen)'
+      :text='isOpen ? "▲" : "▼"',
+      @click='() => onToggle(!isOpen)',
     )
     span {{ snippet.title }}
   .content(
-    :class='{ open: isOpen }'
+    :class='{ open: isOpen }',
   )
     p(
-      v-for='(desc, i) in snippet.description'
-      :key='`snippet_${i}`'
-      v-html='desc'
+      v-for='(desc, i) in snippet.description',
+      :key='`snippet_${i}`',
+      v-html='desc',
     )
     pre(
-      v-hljs
+      v-hljs,
     )
       code(
-        :class='`${snippet.language} language-${snippet.language}`'
-        v-html='snippet.code'
+        :class='`${snippet.language} language-${snippet.language}`',
+        v-html='snippet.code',
       )
 </template>
 

@@ -3,14 +3,14 @@
   .element
     .video.object
       iframe(
-        :src='src'
-        frameborder='0'
-        allow='fullscreen'
-        allowfullscreen
+        :src='src',
+        frameborder='0',
+        allow='fullscreen',
+        allowfullscreen,
       )
     .description
       p(
-        v-html='video.description'
+        v-html='video.description',
       )
 </template>
 

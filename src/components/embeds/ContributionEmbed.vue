@@ -1,6 +1,6 @@
 <template lang='pug'>
 p(
-  v-if="type === 'para'",
+  v-if='type === "para"',
   v-html='content',
 )
 li(
@@ -8,7 +8,7 @@ li(
   v-html='content',
 )
 li(
-  v-else-if="type !== 'section' && level > 0",
+  v-else-if='type !== "section" && level > 0',
 )
   span(
     v-html='content.label',

@@ -1,20 +1,20 @@
 <template lang='pug'>
 section(
-  :id='id'
+  :id='id',
 )
   h2 {{ heading }}
   div
     .image
       img(
-        :src='imageSrc'
-        :alt='imageAlt'
-        :title='imageAlt'
+        :src='imageSrc',
+        :alt='imageAlt',
+        :title='imageAlt',
       )
     .body
       p(
-        v-for='(content, index) in body'
-        :key='"infoBody_" + index'
-        v-html='content'
+        v-for='(content, index) in body',
+        :key='"infoBody_" + index',
+        v-html='content',
       )
 </template>
 

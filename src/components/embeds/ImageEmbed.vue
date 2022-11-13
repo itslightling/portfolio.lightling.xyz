@@ -1,50 +1,50 @@
-<template lang="pug">
+<template lang='pug'>
 .image-embed.embed
   .element
     .image.object
       Tippy(
-        :content='image.title || image.alt'
+        :content='image.title || image.alt',
       )
         img(
-          :src='image.src'
-          :alt='image.alt'
-          :tabindex='preview ? -1 : 0'
-          @click='() => onToggle(true)'
-          @keyup.enter='() => onToggle(true)'
-          @keyup.space='() => onToggle(true)'
+          :src='image.src',
+          :alt='image.alt',
+          :tabindex='preview ? -1 : 0',
+          @click='() => onToggle(true)',
+          @keyup.enter='() => onToggle(true)',
+          @keyup.space='() => onToggle(true)',
         )
     .description
       p(
-        v-html='image.shortDescription'
+        v-html='image.shortDescription',
       )
   .preview(
-    v-if='preview'
+    v-if='preview',
   )
     .image
       Tippy(
-        :content='image.title || image.alt'
+        :content='image.title || image.alt',
       )
         img(
-          :src='image.src'
-          :alt='image.alt'
-          :tabindex='preview ? -1 : 0'
-          @click='() => onToggle(true)'
-          @keyup.enter='() => onToggle(true)'
-          @keyup.space='() => onToggle(true)'
+          :src='image.src',
+          :alt='image.alt',
+          :tabindex='preview ? -1 : 0',
+          @click='() => onToggle(true)',
+          @keyup.enter='() => onToggle(true)',
+          @keyup.space='() => onToggle(true)',
         )
     .description
       p(
-        v-html='image.longDescription || image.shortDescription'
+        v-html='image.longDescription || image.shortDescription',
       )
-      button(
-        v-focus=''
-        tabindex='2'
-        text='Close'
-        @click='() => onToggle(false)'
+      Button(
+        v-focus='',
+        tabindex='2',
+        text='Close',
+        @click='() => onToggle(false)',
       )
 </template>
 
-<style lang="sass" scoped>
+<style lang='sass' scoped>
 @import '@/styles/variables.sass'
 @import '@/styles/shared/embed.sass'
 
@@ -52,6 +52,9 @@
   .image
     height: 10rem
     cursor: pointer
+    display: flex
+    align-items: center
+    justify-content: center
     &>div
       height: 100%
       &>div:nth-of-type(2)
@@ -84,7 +87,7 @@
   grid-gap: 1rem
   animation: openScale $brand-anim-a
   &::before
-    content: ""
+    content: ''
     position: absolute
     background-color: $brand-dark-a
     top: 6rem
@@ -117,7 +120,7 @@
       outline-color: $brand-bright-a !important
 </style>
 
-<script lang="ts">
+<script lang='ts'>
 import { defineComponent, ref } from 'vue'
 import { Tippy } from 'vue-tippy'
 import { DetailedImageElement } from '@/types/DetailedImageElement'

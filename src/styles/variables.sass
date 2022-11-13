@@ -21,9 +21,26 @@ $body-family: 'Source Sans Pro', Arial, sans-serif
 
 $brand-anim-a: 0.3s cubic-bezier(0.065, 0.950, 0.500, 0.930)
 
+@mixin moz-scrollbar()
+  scrollbar-color: $brand-dark-a $brand-bright-a
+  scrollbar-width: auto
+
+@mixin webkit-scrollbar()
+  &::-webkit-scrollbar
+    background-color: $brand-dark-a
+    width: 1rem
+  &::-webkit-scrollbar-track
+    width: 0.75rem
+  &::-webkit-scrollbar-button
+    background-color: $brand-medium-a
+  &::-webkit-scrollbar-thumb
+    background-color: $brand-bright-a
+    border: 0.15rem solid $brand-dark-a
+    border-radius: 0.5rem
+
 @mixin highlight($horizontal-padding, $top-padding, $size)
   &::before
-    content: ""
+    content: ''
     position: absolute
     top: $top-padding
     left: $horizontal-padding
@@ -33,7 +50,7 @@ $brand-anim-a: 0.3s cubic-bezier(0.065, 0.950, 0.500, 0.930)
     border-bottom-left-radius: 1rem
     background-color: #FFF3
   &::after
-    content: ""
+    content: ''
     position: absolute
     top: $top-padding
     right: $horizontal-padding

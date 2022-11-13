@@ -1,11 +1,11 @@
 <template lang='pug'>
 iframe(
-  style='border: 0;'
-  :src='src'
-  seamless
+  style='border: 0;',
+  :src='src',
+  seamless,
 )
   a(
-    :href='href'
+    :href='href',
   )
     =title
 </template>

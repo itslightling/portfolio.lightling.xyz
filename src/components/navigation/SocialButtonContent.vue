@@ -4,7 +4,7 @@ div(
 )
   img(
     :src='imageSrc',
-    alt=''
+    alt='',
     role='presentation',
   )
   p

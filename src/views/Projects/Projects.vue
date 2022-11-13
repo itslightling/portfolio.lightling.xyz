@@ -65,6 +65,7 @@
   height: 100%
   display: flex
   .main-container
+    @include webkit-scrollbar
     padding-top: 1rem
     overflow-y: scroll
     section

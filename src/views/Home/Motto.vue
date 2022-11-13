@@ -1,22 +1,22 @@
 <template lang='pug'>
 section(
-  id='motto'
+  id='motto',
 )
   h2 Motto
   div
     div
       p(
-        v-for='(p, i) in motto'
-        :key='`motto_${i}`'
-        v-html='p'
+        v-for='(p, i) in motto',
+        :key='`motto_${i}`',
+        v-html='p',
       )
     div
       div(
-        class='avatar'
+        class='avatar',
       )
         img(
-          :src='logo.src'
-          :alt='logo.alt'
+          :src='logo.src',
+          :alt='logo.alt',
         )
       p Lightling
 </template>

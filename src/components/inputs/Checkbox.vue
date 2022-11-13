@@ -1,14 +1,14 @@
 <template lang='pug'>
 .checkbox
   input(
-    :id='name'
-    :name='name'
-    type='checkbox'
-    checked
-    @change='$emit("changed", $event.target.checked)'
+    :id='name',
+    :name='name',
+    type='checkbox',
+    checked,
+    @change='$emit("changed", $event.target.checked)',
   )
   label(
-    :for='name'
+    :for='name',
   ) {{ label }}
 </template>
 
