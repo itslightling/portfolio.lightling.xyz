@@ -5,6 +5,7 @@ import { ProjectLink } from './types/project/ProjectLink'
 import About from './views/About/About.vue'
 import Home from './views/Home/Home.vue'
 import Hobbies from './views/Hobbies/Hobbies.vue'
+import Project from './views/Project/Project.vue'
 import Projects from './views/Projects/Projects.vue'
 
 export const SiteRoutes: ProjectLink[] & RouteRecordRaw[] = [
@@ -30,7 +31,7 @@ export const SiteRoutes: ProjectLink[] & RouteRecordRaw[] = [
   },
   {
     path: '/portfolio/:id',
-    component: Home,
+    component: Project,
     title: 'Project',
   },
 ]

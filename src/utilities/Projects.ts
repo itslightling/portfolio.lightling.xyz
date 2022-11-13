@@ -1,4 +1,5 @@
 import { ProjectBasicInfo } from '@/types/project/ProjectBasicInfo'
+import { ProjectContent } from '@/types/project/ProjectContent'
 
 /**
  * Compares two projects by period. This prefers projects with newer end dates, falling back to start dates only if both are current
@@ -41,6 +42,27 @@ export const compareProjectsByPeriod = (
       return 0
     }
   }
+}
+
+/**
+ * Container for a default/empty project for loading state purposes
+ */
+ export const defaultProject: ProjectContent = {
+  formalTitle: 'Loading...',
+  company: 'Loading...',
+  role: 'Loading...',
+  setting: 'Loading...',
+  period: [
+    {
+      start: 'MMM YYYY',
+      end: 'MMM YYYY',
+    },
+  ],
+  status: 'Loading...',
+  tools: [],
+  summary: [
+    'Loading project...',
+  ],
 }
 
 /**

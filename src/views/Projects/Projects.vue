@@ -203,32 +203,32 @@ export default defineComponent({
           ),
         ).flat()
       })
-      fetch('/content/projects.yml')
-        .then((response) => response.blob())
-        .then((blob) => blob.text())
-        .then((yamlAsString) => yaml.load(yamlAsString))
-        .then((yamlAsObj) => {
-          const projects = (yamlAsObj as Array<any>).map((str) => fetch(`/content/projects/${str}.yml`))
-          return Promise.all(projects)
+    fetch('/content/projects.yml')
+      .then((response) => response.blob())
+      .then((blob) => blob.text())
+      .then((yamlAsString) => yaml.load(yamlAsString))
+      .then((yamlAsObj) => {
+        const projects = (yamlAsObj as Array<any>).map((str) => fetch(`/content/projects/${str}.yml`))
+        return Promise.all(projects)
+      })
+      .then((responses) => {
+        const parsed = responses.map((response) => 
+          response.blob()
+            .then((blob) => blob.text())
+            .then((str) => yaml.load(str))
+        )
+        return Promise.all(parsed as Array<any> as Array<Project>)
+      })
+      .then((projects) => {
+        projects.sort(compareProjectsByPeriod)
+        projects.forEach((project) => {
+          if (project.isExperimental) {
+            this.currentProjects.experimental.push(project)
+          } else {
+            this.currentProjects.portfolio.push(project)
+          }
         })
-        .then((responses) => {
-          const parsed = responses.map((response) => 
-            response.blob()
-              .then((blob) => blob.text())
-              .then((str) => yaml.load(str))
-          )
-          return Promise.all(parsed as Array<any> as Array<Project>)
-        })
-        .then((projects) => {
-          projects.sort(compareProjectsByPeriod)
-          projects.forEach((project) => {
-            if (project.isExperimental) {
-              this.currentProjects.experimental.push(project)
-            } else {
-              this.currentProjects.portfolio.push(project)
-            }
-          })
-        })
+      })
   },
   methods: {
     onCheckboxChanged (e: any) {
