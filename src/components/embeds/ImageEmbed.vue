@@ -2,7 +2,7 @@
 .image-embed.embed
   .element
     .image.object
-      TippyComponent(
+      Tippy(
         :content='image.title || image.alt'
       )
         img(
@@ -21,7 +21,7 @@
     v-if='preview'
   )
     .image
-      TippyComponent(
+      Tippy(
         :content='image.title || image.alt'
       )
         img(
@@ -119,7 +119,7 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue'
-import { TippyComponent } from 'vue-tippy'
+import { Tippy } from 'vue-tippy'
 import { DetailedImageElement } from '@/types/DetailedImageElement'
 import Button from '@/components/inputs/Button.vue'
 
@@ -127,7 +127,7 @@ export default defineComponent({
   name: 'ImageEmbed',
   components: {
     Button,
-    TippyComponent,
+    Tippy,
   },
   props: {
     image: {

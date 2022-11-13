@@ -9,11 +9,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "highlight.js": "^11.6.0",
     "js-yaml": "^4.1.0",
     "normalize.css": "^8.0.1",
     "vue": "^3.2.37",
     "vue-router": "^4.1.5",
-    "vue-tippy": "^4.16.0"
+    "vue-tippy": "^6.0.0-alpha.65"
   },
   "devDependencies": {
     "@types/js-yaml": "^4.0.5",
